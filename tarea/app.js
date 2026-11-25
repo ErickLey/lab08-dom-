@@ -34,3 +34,17 @@ const iniciales = [
 ];
 
 iniciales.forEach((p) => renderizarPelicula(p));
+
+// Evento submit para agregar nuevas películas
+const formPelicula = document.querySelector("#formPelicula");
+const inputTitulo = document.querySelector("#tituloPelicula");
+const inputGenero = document.querySelector("#generoPelicula");
+
+formPelicula.addEventListener("submit", (evento) => {
+  evento.preventDefault();
+
+  const nuevaPelicula = new Pelicula(inputTitulo.value.trim(), inputGenero.value.trim());
+  renderizarPelicula(nuevaPelicula);
+
+  formPelicula.reset();
+});
